@@ -4,6 +4,27 @@ Now, with the rapid growth of the community, there isn't much to buy and sell in
 We began to expand to buy and sell in Jackson, Toms River, Howell, Brick , and Manchester. We now need to record what town each house is located 
 in. When we tried to amend our program we noticed many weaknesses in our current system. We decided we are best off starting from scratch.
 
+use RealtyDB
+Primary key int not null
+Address varchar(50) not null not blank
+Town varchar(25) not null not blank
+HouseType varchar(25) not null constraint in bi-level, colonial, ranch, split-level, duplex, townhouse, vacant land or apartment
+Bedrooms int not null
+Bathrooms int not null
+SquareFootageHouse int greater than 0
+SquareFootageLot int not null greater than 0
+Owner varchar(50) not null not blank
+Realtor varchar(50) not null not blank
+Client varchar(50) not null not blank
+DatePutOnMarket date not null
+DateSold date default DatePutOnMarket constraint < = getdate
+AskingPrice int not null
+PriceSold int constraint between 100K and 9.9M and > = askingprice
+Buyer varchar(50)
+
+
+
+
 We record the address of the house, the town the house is in, the type of house (bi-level, colonial, ranch, split-level, duplex, townhouse
 or vacant land), and the sqare-footage of the house. We also want to record amount of Bathrooms and Bedrooms 
 We don't do any renting, we do sometimes sell individual apartments.
